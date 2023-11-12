@@ -36,7 +36,6 @@ model Users {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   orders      Orders[]
-  // messages    Chat[]
   userRol     Roles    @relation(fields: [rolId], references: [id])
   rolId       Int
 }
@@ -44,8 +43,7 @@ model Users {
 model Chat {
   id          Int @id @default(autoincrement())
   content     String
-  // client      Users?    @relation(fields: [clientId], references: [id])
-  // clientId    Int?
+
   clientName  String
   createdAt   DateTime  @default(now())
 }

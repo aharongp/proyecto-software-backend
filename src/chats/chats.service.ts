@@ -34,47 +34,5 @@ export class ChatsService {
     return this.clientToUser[clientId];
   }
 
-  // constructor(private prisma: PrismaService){}
-  
-  // clientToUser = {};
 
-  // identify(name: UserEntity) {
-  //   this.clientToUser[name.username] = name;
-  // }
-
-  // async create(createChatDto: CreateChatDto, clientId: string) {
-
-  //   const user = this.clientToUser[clientId];
-
-  //   const message = {
-  //     clientId: user.id,
-  //     text: createChatDto.text
-  //   }
-
-  //   const savedMsg = await this.prisma.chat.create({ data: message });
-    
-  //   return savedMsg
-  // }
-
-  // findAll() {
-  //   const messages = this.prisma.chat.findMany();
-  //   return messages;
-  // }
-
-  // async getClientName(clientId: string) {
-  //   const message = await this.prisma.users.findUnique({
-  //     where: { username: this.clientToUser[clientId] },
-  //   });
-
-  //   return message.username;
-  // }
-
-  // getUser(clientId: string) {
-    
-  //   return this.clientToUser[clientId]; 
-  // }
-
-  // remove(id: number) {
-  //   return this.prisma.chat.delete({where: { id } });
-  // }
 }
