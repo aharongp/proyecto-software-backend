@@ -10,17 +10,17 @@ async function main() {
   // create two dummy users
   const passwordSabin = await bcrypt.hash('123456', roundsOfHashing);
 
-  // const rol1 = await prisma.roles.create({
-  //       data: {
-  //           name: 'admin'
-  //       }
-  // })
+  const rol1 = await prisma.roles.create({
+        data: {
+            name: 'admin'
+        }
+  })
 
-  // const rol2 = await prisma.roles.create({
-  //       data: {
-  //           name: 'client'
-  //       }
-  //   })
+  const rol2 = await prisma.roles.create({
+        data: {
+            name: 'client'
+        }
+    })
   const user1 = await prisma.users.upsert({
     where: { email: 'sabin@adams.com' },
     update: {

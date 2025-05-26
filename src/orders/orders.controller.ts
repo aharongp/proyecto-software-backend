@@ -35,20 +35,4 @@ export class OrdersController {
   async findOne(@Param('id', ParseIntPipe) id: number) {
     return new Order(await this.ordersService.findOne(id));
   }
-
-  @Patch(':id')
-  @UseGuards(JwtAuthGuard)
-  @ApiBearerAuth()
-  @ApiOkResponse({ type: Order })
-  async update(@Param('id', ParseIntPipe) id: number, @Body() updateOrderDto: UpdateOrderDto) {
-    return new Order(await this.ordersService.update(id, updateOrderDto));
-  }
-
-  @Delete(':id')
-  @UseGuards(JwtAuthGuard)
-  @ApiBearerAuth()
-  @ApiOkResponse({ type: Order })
-  async remove(@Param('id', ParseIntPipe) id: number) {
-    return new Order(await this.ordersService.remove(id));
-  }
 }

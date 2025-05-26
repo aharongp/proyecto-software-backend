@@ -47,3 +47,10 @@ model Chat {
   clientName  String
   createdAt   DateTime  @default(now())
 }
+
+model Catalogo{
+  id          Int @id @default(autoincrement())
+  titulo      String
+  description String
+  url         String
+}

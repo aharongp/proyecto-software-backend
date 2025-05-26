@@ -19,12 +19,4 @@ export class OrdersService {
   findOne(id: number) {
     return this.prisma.orders.findUnique({ where: {id} });
   }
-
-  update(id: number, updateOrderDto: UpdateOrderDto) {
-    return this.prisma.orders.update({where: {id}, data: updateOrderDto});
-  }
-
-  remove(id: number) {
-    return this.prisma.orders.delete({where: {id}});
-  }
 }
