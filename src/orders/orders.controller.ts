@@ -11,16 +11,16 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
-  @Post()
-  @UseGuards(JwtAuthGuard)
+  @Post('create')
+  // @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiCreatedResponse({ type: Order })
   async create(@Body() createOrderDto: CreateOrderDto) {
-    return new Order(await this.ordersService.create(createOrderDto));
+    return await this.ordersService.create(createOrderDto);
   }
 
   @Get()
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiOkResponse({ type: Order, isArray: true })
   async findAll() {
@@ -29,10 +29,26 @@ export class OrdersController {
   }
 
   @Get(':id')
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiOkResponse({ type: Order })
   async findOne(@Param('id', ParseIntPipe) id: number) {
-    return new Order(await this.ordersService.findOne(id));
+    return await this.ordersService.findOne(id);
+  }
+
+  @Patch(':id')
+  // @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOkResponse({ type: Order })
+  async update(@Param('id', ParseIntPipe) id: number, @Body() updateOrderDto: UpdateOrderDto) {
+    return new Order(await this.ordersService.update(id, updateOrderDto));
+  }
+
+  @Delete(':id')
+  // @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOkResponse({ type: Order })
+  async remove(@Param('id', ParseIntPipe) id: number) {
+    return new Order(await this.ordersService.remove(id));
   }
 }

@@ -33,6 +33,31 @@ async function main() {
       rolId: 1
     },
   });
+  const user2 = await prisma.users.upsert({
+    where: { email: 'aharon@guedez.com' },
+    update: {
+      password: passwordSabin,
+    },
+    create: {
+      email: 'aharon@guedez.com',
+      username: 'aharon',
+      password: passwordSabin,
+      rolId: 2
+    },
+  });
+
+  const user3 = await prisma.users.upsert({
+    where: { email: 'josue@guedez.com' },
+    update: {
+      password: passwordSabin,
+    },
+    create: {
+      email: 'josue@guedez.com',
+      username: 'josue',
+      password: passwordSabin,
+      rolId: 2
+    },
+  });
 
   const msg1 = prisma.chat.upsert({
     where: { id: 1 },

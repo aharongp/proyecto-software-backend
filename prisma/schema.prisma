@@ -18,8 +18,8 @@ model Orders {
   img         String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  client      Users?    @relation(fields: [clientId], references: [id])
-  clientId    Int?
+  client      Users    @relation(fields: [clientId], references: [id])
+  clientId    Int
 }
 
 model Roles {
