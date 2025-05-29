@@ -11,8 +11,8 @@ export class CatalogoController {
 
   constructor(private readonly catalogoService: CatalogoService) {}
 
-  @Post()
-  @UseGuards(JwtAuthGuard)
+  @Post('create')
+  // @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiCreatedResponse({ type: Catalogo })
   create(@Body() createCatalogoDto: CreateCatalogoDto) {
@@ -20,7 +20,7 @@ export class CatalogoController {
   }
 
   @Get()
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiOkResponse({ type: Catalogo, isArray: true })
   findAll() {
@@ -28,7 +28,7 @@ export class CatalogoController {
   }
 
   @Get(':id')
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiOkResponse({ type: Catalogo })
   findOne(@Param('id') id: string) {
@@ -36,7 +36,7 @@ export class CatalogoController {
   }
 
   @Delete(':id')
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiOkResponse({ type: Catalogo })
   remove(@Param('id') id: string) {

@@ -5,7 +5,7 @@ export class CreateCatalogoDto {
         @IsNotEmpty()
         @IsString()
         @ApiProperty()
-        @MinLength(5)
+        @MinLength(3)
         titulo: string;
     
         @ApiProperty()

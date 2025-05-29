@@ -59,6 +59,22 @@ async function main() {
     },
   });
 
+  const newPage = await prisma.catalogo.create({
+    data: {
+      titulo: 'Airbnb', // Cambia esto por el título deseado
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente', // Cambia esto por el contenido deseado
+      url: 'https://www.airbnb.co.ve', // Asumiendo que tienes un ID de autor, ajusta según sea necesario
+    },
+  });
+
+  const newPage1 = await prisma.catalogo.create({
+    data: {
+      titulo: 'amazon', // Cambia esto por el título deseado
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente', // Cambia esto por el contenido deseado
+      url: 'https://www.amazon.com/-/es/', // Asumiendo que tienes un ID de autor, ajusta según sea necesario
+    },
+  });
+
   const msg1 = prisma.chat.upsert({
     where: { id: 1 },
     update: {
@@ -69,9 +85,7 @@ async function main() {
       clientName: 'aharon'
     },
   });
-
 }
-
 
 // execute the main function
 main()
