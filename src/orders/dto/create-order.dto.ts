@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsOptional, IsString, MaxLength, MinLength } from "class-validator";
+import { IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength, MinLength } from "class-validator";
 
 export class CreateOrderDto {
 
@@ -24,5 +24,9 @@ export class CreateOrderDto {
     @ApiProperty({ required: false})
     img?: string;
 
+    @IsNumber()
+    @IsNotEmpty()
+    @ApiProperty()
+    clientId: number;
 }
 

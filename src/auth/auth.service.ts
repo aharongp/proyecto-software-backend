@@ -10,7 +10,7 @@ import * as bcrypt from 'bcrypt'
 export class AuthService {
   constructor(private prisma: PrismaService, private jwtService: JwtService) {}
   
-  async login(email: string, password: string): Promise<AuthEntity> {
+  async login(email: string, password: string) {
     // Step 1: Fetch a user with the given email
     const user = await this.prisma.users.findUnique({ where: { email: email } });
 
@@ -30,6 +30,8 @@ export class AuthService {
     // Step 3: Generate a JWT containing the user's ID and return it
     return {
       accessToken: this.jwtService.sign({ userId: user.id }),
+      userInfo: user
+    
     };
   }
 }

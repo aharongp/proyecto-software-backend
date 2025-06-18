@@ -16,8 +16,8 @@ export class OrdersService {
     return this.prisma.orders.findMany();
   }
 
-  findOne(id: number) {
-    return this.prisma.orders.findUnique({ where: {id} });
+  findOne(clientId: number) {
+    return this.prisma.orders.findMany({ where: {clientId} });
   }
 
   update(id: number, updateOrderDto: UpdateOrderDto) {

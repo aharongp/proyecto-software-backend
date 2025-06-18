@@ -24,8 +24,8 @@ export class Order {
     @ApiProperty()
     updatedAt: Date;
 
-    @ApiProperty({ required: false, nullable: true })
-    clientId: number | null;
+    @ApiProperty({ required: true })
+    clientId: number;
 
     @ApiProperty({ required: false, type: UserEntity })
     client?: UserEntity
