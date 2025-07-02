@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, UseGuards } from '@nestjs/common';
 import { OrdersService } from './orders.service';
-import { CreateOrderDto } from './dto/create-order.dto';
-import { UpdateOrderDto } from './dto/update-order.dto';
+import { CreateOrderDto } from '../dto/create-order.dto';
+import { UpdateOrderDto } from '../dto/update-order.dto';
 import { ApiBearerAuth, ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { Order } from './entities/order.entity';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { Order } from '../entities/order.entity';
+import { JwtAuthGuard } from 'src/auth/logic/jwt-auth.guard';
 
 @Controller('orders')
 @ApiTags('Orders')

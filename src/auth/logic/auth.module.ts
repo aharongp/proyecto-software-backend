@@ -4,9 +4,9 @@ import { AuthController } from './auth.controller';
 import { PrismaModule } from 'src/prisma/prisma.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
-import { UsersModule } from 'src/users/users.module';
+import { UsersModule } from 'src/users/logic/users.module';
 import { JwtStrategy } from './jwt.strategy';
-import { UsersService } from 'src/users/users.service';
+import { UsersService } from 'src/users/logic/users.service';
 
 export const jwtSecret = 'zjP9h6ZI5LoSKCRj';
 

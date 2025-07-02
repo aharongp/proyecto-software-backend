@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCatalogoDto } from './dto/create-catalogo.dto';
-import { UpdateCatalogoDto } from './dto/update-catalogo.dto';
+import { CreateCatalogoDto } from '../dto/create-catalogo.dto';
+import { UpdateCatalogoDto } from '../dto/update-catalogo.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -19,6 +19,9 @@ export class CatalogoService {
     return this.prisma.catalogo.findFirst({ where: {id} });
   }
   
+  update(id: number, updateCatalogoDto: UpdateCatalogoDto) {
+    return this.prisma.catalogo.update({where: {id}, data: updateCatalogoDto});
+  }
 
   remove(id: number) {
     return this.prisma.catalogo.delete({ where: {id} });

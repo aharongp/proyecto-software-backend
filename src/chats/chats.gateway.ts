@@ -61,4 +61,14 @@ export class ChatsGateway {
       client.broadcast.to(nameRoom).emit('typing', {name, isTyping});
   }
 
+  @SubscribeMessage('leave')
+  leaveRoom(
+    @MessageBody() data: { room: string, name: string },
+    @ConnectedSocket() client: Socket
+  ) {
+    const { room, name } = data;
+    client.leave(room);
+    console.log(`Usuario ${name} salió de la sala ${room}`);
+  }
+
 }
