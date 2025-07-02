@@ -16,6 +16,7 @@ model Orders {
   description String
   typeOrder   String
   img         String?
+  state         String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   client      Users    @relation(fields: [clientId], references: [id])

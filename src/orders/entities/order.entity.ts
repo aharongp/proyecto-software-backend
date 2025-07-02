@@ -14,6 +14,9 @@ export class Order {
 
     @ApiProperty()
     typeOrder: string;
+
+    @ApiProperty()
+    state: string;
     
     @ApiProperty({ required: false})
     img?: string;

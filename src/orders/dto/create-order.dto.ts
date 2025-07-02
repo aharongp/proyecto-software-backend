@@ -19,6 +19,11 @@ export class CreateOrderDto {
     @IsNotEmpty()
     typeOrder: string;
 
+    @ApiProperty()
+    @IsNotEmpty()
+    @IsString()
+    state: string;
+
     @IsOptional()
     @IsString()
     @ApiProperty({ required: false})
