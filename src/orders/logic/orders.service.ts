@@ -6,7 +6,9 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class OrdersService {
 
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) {
+    
+  }
 
   create(createOrderDto: CreateOrderDto) {
     return this.prisma.orders.create({data: createOrderDto});

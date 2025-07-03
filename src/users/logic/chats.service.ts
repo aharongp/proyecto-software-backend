@@ -1,7 +1,7 @@
 
 import { Injectable } from '@nestjs/common';
-import { CreateChatDto } from './dto/create-chat.dto';
-import { Message } from './entities/chat.entity';
+import { CreateChatDto } from '../../users/dto/create-chat.dto';
+import { Message } from '../../users/entities/chat.entity';
 
 
 @Injectable()
